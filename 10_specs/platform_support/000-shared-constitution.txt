@@ -1,0 +1,23 @@
+000-001 REQUIREMENTS HOME
+
+This document owns the foundational principles for Cogwheel's List. Domain specifications own their detailed requirements and cross-reference these principles by ID.
+
+000-002 DATA HOMES
+
+Apple Contacts and the specified Google Sheet are the homes of synchronized user data. Cogwheel's List is a relay and does not become a third editing surface.
+
+000-003 MINIMAL SURFACE
+
+The macOS application exposes only the setup, authorization, status, diagnostics, and recovery surfaces required to operate synchronization. It does not provide general-purpose contact or spreadsheet editing.
+
+000-004 EXPLICIT AUTHORIZATION
+
+The application synchronizes only sources selected and authorized by the user. It does not discover or modify unrelated contacts, sheets, accounts, or files.
+
+000-005 DETERMINISTIC SYNC
+
+The same source state and configuration produce the same reconciliation result. Conflict handling, retry behavior, and checkpoint persistence are explicit requirements in their owning specifications.
+
+000-006 PRIVACY BY DEFAULT
+
+The application minimizes collection, retention, logging, and transmission of contact and sheet data. Diagnostics redact personal data and credentials.

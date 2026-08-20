@@ -1,0 +1,15 @@
+001-001 NORMATIVE LANGUAGE
+
+`MUST` and `MUST NOT` are release requirements. `SHOULD` describes an expected behavior with a documented exception. `MAY` identifies a genuine implementation choice. A plain present-tense statement can also be normative.
+
+001-002 REQUIREMENT IDs
+
+Each domain document owns its own prefix and numbered requirement IDs. A fact or rule has exactly one determining home. Other documents reference the owning ID instead of restating it.
+
+001-003 STRUCTURE
+
+Specifications use a declarative requirement followed by elaboration. They state both what the product does and what it does not do. UI labels and file types use inline monospace formatting. Menus and feature sets use bullets. Specifications do not include rationale sections.
+
+001-004 READING ORDER
+
+Read `000-shared-constitution` first. Then read this document. Read domain documents in numeric order and resolve cross-references before implementation.
