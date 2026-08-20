@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 011
+Apple-like Bidirectional Sync
+
+===========================================================================
+
 011-001 PRODUCT SHAPE
 
 Cogwheels builds the most Apple-like way to sync.

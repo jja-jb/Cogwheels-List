@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 005
+Conflict and Delete
+
+===========================================================================
+
 005-001 ANCESTOR
 
 Conflict resolution is three-way against the last-successfully-applied ancestor.

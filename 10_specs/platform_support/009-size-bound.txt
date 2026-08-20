@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 009
+Size Bound
+
+===========================================================================
+
 009-001 FORMULA
 
 `max_bytes = 1 MiB + 1 KiB*(C+G+T) + 256 B*A`.

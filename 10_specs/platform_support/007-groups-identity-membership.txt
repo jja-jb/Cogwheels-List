@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 007
+Groups Identity and Membership
+
+===========================================================================
+
 007-001 GROUP IDENTITY
 
 Groups are a second identity kind.

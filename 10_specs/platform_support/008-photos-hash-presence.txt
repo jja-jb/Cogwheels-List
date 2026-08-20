@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 008
+Photos Hash and Presence
+
+===========================================================================
+
 008-001 IMAGE DATA
 
 Photos use Contacts-only `imageData`.

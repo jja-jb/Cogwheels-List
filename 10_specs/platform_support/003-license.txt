@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 003
+License
+
+===========================================================================
+
 003-001 LICENSE
 
 The project uses Hummingbird License v1.6 or the latest All Licenses if newer.

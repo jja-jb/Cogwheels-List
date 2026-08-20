@@ -1,3 +1,8 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 002
+Accounts
+
+===========================================================================
+
 002-001 ACCOUNT SET
 
 Version 1.x supports one Apple account plus one Google account.
