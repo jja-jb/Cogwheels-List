@@ -1,0 +1,72 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 012
+Cogwheels List Sync Logic Flow
+
+===========================================================================
+
+012-001 INSTANCE GATE
+
+Cogwheel computes the instance fingerprint before reading or writing sync state. If a second instance fingerprint is present, Cogwheel fail-stops.
+
+012-002 SNAPSHOT SOURCE
+
+Cogwheel loads the Application Support snapshot. The snapshot is not a WAL.
+
+012-003 INPUTS
+
+Cogwheel reads Contacts and the Sheet from the loaded snapshot.
+
+012-004 IDENTITY MATCH
+
+Identity matching uses `CNContact.identifier` and `cw-` IDs. Cogwheel never rewrites `cw_id`.
+
+012-005 ATOM DECISION
+
+For each field atom, Cogwheel compares both sides against the last-successfully-applied ancestor using three-way merge.
+
+012-006 ONE-SIDE PROPAGATION
+
+When only one side differs from the ancestor, Cogwheel propagates that side.
+
+012-007 EQUAL SIDES
+
+When both sides equal the ancestor or both sides are equal to each other, Cogwheel advances the ancestor.
+
+012-008 GENUINE CONFLICT
+
+When both sides differ from the ancestor and differ from each other, Cogwheel freezes the field and records a header-named `cw_conflict`. Cogwheel chooses no auto-winner.
+
+012-009 MISSING LINK
+
+Missing-after-live-link is a delete.
+
+012-010 TOMBSTONE COLLECTION
+
+Cogwheel garbage-collects a tombstone after 3 consecutive both-absent successful runs.
+
+012-011 GROUPS AND MEMBERSHIP
+
+Groups and membership use the second identity kind, a separate `cw-` namespace, membership atoms, macOS-only subgroups, and write-target-only containers.
+
+012-012 PHOTOS
+
+Photos use Contacts-only `imageData`, a Sheet hash/presence value, no REST add-image, no Apps Script second writer, and one ordinary photo hash/presence ancestor in `A`.
+
+012-013 ADDITIVE HEADERS
+
+Additive headers are deterministic and minted on appearance. A type change is a new field key.
+
+012-014 SIZE BOUND
+
+Cogwheel applies `max_bytes = 1 MiB + 1 KiB*(C+G+T) + 256 B*A`, SHA-256 hashes every ancestor, and fails closed on overflow. `N=3` is the load-bearing GC run count.
+
+012-015 DETERMINISM
+
+The same inputs produce the same result.
+
+012-016 EDITING SURFACE
+
+Contacts.app is the human UI. Cogwheel has no editing UI and creates no third editing surface.
+
+012-017 DURABILITY GAP
+
+The locked specifications do not yet define crash-atomic commit ordering, recovery after an interrupted write, or a durable checkpoint protocol beyond the explicit Application Support snapshot and fail-closed rules. Implementations must not infer those details from this document.

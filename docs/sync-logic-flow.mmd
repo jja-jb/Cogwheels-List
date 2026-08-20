@@ -1,0 +1,28 @@
+flowchart TD
+    A[Start sync run] --> B{Second instance fingerprint?}
+    B -- yes --> Z1[Fail closed]
+    B -- no --> C[Load Application Support snapshot]
+    C --> D[Read Contacts and Sheet]
+    D --> E[Match CNContact.identifier and cw- IDs]
+    E --> F{cw_id missing, duplicate, or rewritten?}
+    F -- yes --> Z2[Fail closed]
+    F -- no --> G[Process each field atom]
+    G --> H[Compare Contacts and Sheet with last-successfully-applied ancestor]
+    H --> I{Three-way result}
+    I -- one side changed --> J[Propagate changed side]
+    I -- equal --> K[Advance ancestor]
+    I -- genuine conflict --> L[Freeze field and write header-named cw_conflict]
+    L --> M[No auto-winner]
+    J --> N[Apply groups, membership, and photo hash/presence rules]
+    K --> N
+    M --> N
+    N --> O[Apply deterministic additive-header rules]
+    O --> P{Size bound overflow?}
+    P -- yes --> Z3[Fail closed]
+    P -- no --> Q[Persist result and ancestor]
+    Q --> R{Both absent for 3 successful runs?}
+    R -- yes --> S[Garbage-collect tombstone]
+    R -- no --> T[Retain tombstone]
+    S --> U[Same inputs yield same result]
+    T --> U
+    U --> V[Contacts.app remains the human UI]
