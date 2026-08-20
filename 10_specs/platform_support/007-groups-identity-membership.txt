@@ -1,0 +1,19 @@
+007-001 GROUP IDENTITY
+
+Groups are a second identity kind.
+
+007-002 GROUP NAMESPACE
+
+Group identity uses a separate `cw-` namespace.
+
+007-003 MEMBERSHIP
+
+Membership atoms are in scope.
+
+007-004 SUBGROUPS
+
+Subgroups are macOS-only.
+
+007-005 CONTAINERS
+
+Containers are write-target-only.

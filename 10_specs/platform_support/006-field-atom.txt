@@ -1,0 +1,3 @@
+006-001 FIELD ATOM
+
+A field atom is the property plus `CNLabeledValue.identifier` plus type.

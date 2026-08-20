@@ -1,0 +1,7 @@
+003-001 LICENSE
+
+The project uses Hummingbird License v1.6 or the latest All Licenses if newer.
+
+003-002 CARVE-OUTS
+
+There are no carve-outs.

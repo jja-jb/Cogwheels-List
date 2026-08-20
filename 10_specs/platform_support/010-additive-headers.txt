@@ -1,0 +1,7 @@
+010-001 HEADER MINTING
+
+Additive headers are deterministic and minted on appearance.
+
+010-002 TYPE CHANGE
+
+A type change is a new field key.

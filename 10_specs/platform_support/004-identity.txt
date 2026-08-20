@@ -1,0 +1,23 @@
+004-001 SNAPSHOT
+
+Identity is an Application Support link-state snapshot.
+
+004-002 CONTACT IDENTITY
+
+The contact identity is `CNContact.identifier`.
+
+004-003 SHEET IDENTITY
+
+The Sheet identity is `cw-` plus the 12-hex sheet ID selected by header name.
+
+004-004 CW ID STABILITY
+
+Cogwheel never rewrites `cw_id`.
+
+004-005 CW ID VALIDATION
+
+Cogwheel fail-stops on a missing or duplicate `cw_id`.
+
+004-006 ID MODEL
+
+Unified and linked identity use one spec ID.

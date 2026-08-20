@@ -1,0 +1,15 @@
+008-001 IMAGE DATA
+
+Photos use Contacts-only `imageData`.
+
+008-002 SHEET PRESENCE
+
+The Sheet stores the photo hash and presence.
+
+008-003 IMAGE WRITERS
+
+There is no REST add-image and no Apps Script second writer.
+
+008-004 PHOTO ANCESTOR
+
+The photo hash/presence is one ordinary ancestor in `A`.

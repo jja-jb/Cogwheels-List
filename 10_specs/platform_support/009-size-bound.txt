@@ -1,0 +1,23 @@
+009-001 FORMULA
+
+`max_bytes = 1 MiB + 1 KiB*(C+G+T) + 256 B*A`.
+
+009-002 VARIABLES
+
+`C` is live contact links, `G` is live group links, `T` is tombstones not yet GC-ed, and `A` is live field atoms plus live membership atoms.
+
+009-003 PHOTO ATOM
+
+The photo hash/presence is included in `A` as one ordinary ancestor.
+
+009-004 INTEGRITY
+
+Cogwheel SHA-256 hashes every ancestor.
+
+009-005 OVERFLOW
+
+Cogwheel fails closed on overflow.
+
+009-006 GC LOAD
+
+`N=3` is the load-bearing GC run count.

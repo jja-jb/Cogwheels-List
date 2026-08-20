@@ -1,0 +1,15 @@
+002-001 ACCOUNT SET
+
+Version 1.x supports one Apple account plus one Google account.
+
+002-002 GOOGLE SHARING
+
+Google sharing is represented by external Sheet-side values.
+
+002-003 MACHINE COLUMNS
+
+Cogwheel is the only writer of machine columns.
+
+002-004 INSTANCE SAFETY
+
+Cogwheel fail-stops on a second instance fingerprint.

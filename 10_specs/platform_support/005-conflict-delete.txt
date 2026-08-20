@@ -1,0 +1,27 @@
+005-001 ANCESTOR
+
+Conflict resolution is three-way against the last-successfully-applied ancestor.
+
+005-002 ONE-SIDE CHANGE
+
+One-side changes propagate.
+
+005-003 EQUAL SIDES
+
+When both sides are equal, the ancestor advances.
+
+005-004 GENUINE CONFLICT
+
+A genuine conflict freezes the field and records a header-named `cw_conflict`.
+
+005-005 WINNER
+
+There is no auto-winner.
+
+005-006 MISSING LINK
+
+Missing-after-live-link is a delete.
+
+005-007 TOMBSTONE GC
+
+Tombstone garbage collection occurs after 3 consecutive both-absent successful runs.
