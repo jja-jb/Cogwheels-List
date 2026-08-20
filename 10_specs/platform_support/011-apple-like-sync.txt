@@ -1,0 +1,27 @@
+011-001 PRODUCT SHAPE
+
+Cogwheels builds the most Apple-like way to sync.
+
+011-002 V1 SYNC
+
+Version 1 behaves like iCloud Contacts and is bidirectional.
+
+011-003 HUMAN UI
+
+Contacts.app is the human UI; Cogwheel has no editing UI.
+
+011-004 LOCKED SCHEMA
+
+The locked schema is in place from day one and includes contacts, groups, membership, and photos as hash/presence.
+
+011-005 PRODUCT BOUNDARY
+
+Version 1 is not one-way export and is not contacts-only with groups later.
+
+011-006 ENGINEERING SEQUENCING
+
+Engineering may sequence internal slices.
+
+011-007 SHIPPED PRODUCT
+
+The product does not ship a one-way or contacts-only version 1.
