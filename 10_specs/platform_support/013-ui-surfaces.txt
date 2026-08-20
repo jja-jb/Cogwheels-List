@@ -1,0 +1,124 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 013
+Cogwheels List UI Surfaces
+
+===========================================================================
+
+013-001 UI BOUNDARY
+
+Cogwheels has no editing UI. Contacts.app remains the human UI for contact,
+group, membership, and photo data. These surfaces expose setup, authorization,
+sync status, diagnostics, and recovery only.
+
+013-002 WIREFRAME SET
+
+The companion wireframes in `docs/wireframes/` describe the complete surface
+set and its observable states. They are status and control-plane wireframes,
+not a contact editor or spreadsheet editor.
+
+013-003 FIRST LAUNCH
+
+The first-launch surface identifies Cogwheels List, explains that Contacts.app
+is used to edit data, and presents setup progress. It has explicit states for
+not started, setup in progress, setup ready for authorization, and setup
+blocked by an authorization or safety stop.
+
+013-004 APPLE CONTACTS AUTHORIZATION
+
+The Apple Contacts permission surface represents not determined, requesting,
+authorized, denied, and unavailable/restricted states. A denied or unavailable
+state does not imply that Cogwheel may read or write Contacts; sync remains
+blocked until the platform reports authorization.
+
+013-005 GOOGLE ACCOUNT AUTHORIZATION
+
+The Google account surface represents signed out, authorization in progress,
+authorized, denied, and unavailable states. A denied or unavailable state
+blocks the Sheet path and is visible in status and diagnostics.
+
+013-006 SHEET PICKER
+
+After Google authorization, the Sheet picker represents no selection, loading,
+selection available, selected, cancelled, and unavailable states. The picker
+surface chooses a Sheet target only; it does not provide a spreadsheet editor.
+
+013-007 MAIN STATUS
+
+The main status surface represents idle/not configured, configuring, syncing,
+ok, blocked, and stopped states. Idle means no sync is running. Syncing means
+work is in progress. Ok means the latest run completed successfully. Blocked
+and stopped states name the safety or authorization reason without exposing
+editable contact or Sheet data.
+
+013-008 CONFLICT FREEZE
+
+When a named field has a genuine three-way conflict, status shows the field
+name, both endpoints as conflict participants, and a frozen state. Cogwheel
+chooses no auto-winner. The surface directs the person to resolve the value in
+the human editing surface; it does not offer an in-app value editor or winner
+button.
+
+013-009 SIZE-BOUND FAIL-CLOSED
+
+When the configured size bound would be exceeded, status shows a fail-closed
+state and a size-bound diagnostic. No partial sync is presented as successful,
+and no surface offers an override or partial-write control.
+
+013-010 SECOND-INSTANCE FAIL-STOP
+
+When a second instance fingerprint is present, status shows a fail-stop state
+and identifies that another instance is active. The stopped instance exposes
+no sync controls that would permit it to continue.
+
+013-011 PERMISSION DENIED
+
+Permission denial is a blocked state with separate Apple Contacts and Google
+authorization indicators. The surface names the missing permission and offers
+only the platform/settings recovery route; it does not show data or pretend
+that a denied source was synchronized.
+
+013-012 SHEET UNREACHABLE
+
+When the Sheet cannot be reached, status shows an unreachable state, retains
+the last known outcome label, and exposes a retry/recovery route without
+claiming a successful run. The surface does not become a Sheet editor.
+
+013-013 DIAGNOSTICS
+
+Diagnostics show run state, reason codes, timestamps, source availability,
+instance-safety state, size-bound state, conflict field names, and redacted
+identifiers. Personal names, emails, phone numbers, addresses, raw contact
+payloads, Sheet cell values, access tokens, and photo bytes are redacted or
+omitted.
+
+013-014 RECOVERY
+
+Recovery is a reason-specific surface for authorization, Sheet reachability,
+conflict freeze, size-bound fail-closed, and second-instance fail-stop. It
+shows the blocked condition and the next external action. Recovery cannot
+edit contact or Sheet data and cannot bypass a locked safety condition.
+
+013-015 STATE PRIORITY
+
+If more than one condition applies, the status surface presents the safety
+stop before ordinary progress: second-instance fail-stop, size-bound
+fail-closed, and conflict freeze remain visibly distinct from authorization
+or reachability states. The wireframes do not define a new conflict winner or
+new sync policy.
+
+013-016 NO THIRD EDITING SURFACE
+
+No screen, control, or wireframe in this specification edits contacts, groups,
+memberships, photos, or Sheet cells. Contacts.app is the human UI.
+
+013-017 REDACTION INVARIANT
+
+The diagnostics and recovery surfaces preserve enough state to explain a
+blocked run while keeping personal data redacted. A wireframe label is not a
+permission to display the underlying value.
+
+013-018 SCREEN INVENTORY
+
+The complete inventory is: first launch/setup; Contacts permission; Google
+account authorization; Sheet picker; main status; conflict freeze; size-bound
+fail-closed; second-instance fail-stop; permission denied; Sheet unreachable;
+diagnostics; and recovery.
