@@ -5,7 +5,9 @@ License
 
 003-001 LICENSE
 
-The project uses Hummingbird License v1.6 or the latest All Licenses if newer.
+The project uses the checked-in Hummingbird License v1.6, U.S. Edition.
+The checked-in license text is controlling; a later license version is not
+implicitly adopted.
 
 003-002 CARVE-OUTS
 

@@ -127,12 +127,14 @@ denied; Sheet unreachable; diagnostics; and recovery.
 
 Setup exposes a create-new-Sheet path for the initial installation and a
 choose-existing-shared-Sheet path for a later installation. Regular Google
-Sheet sharing remains the sharing mechanism. The surface does not invent a
-distributed lock, identity model, or spreadsheet editor for shared installs.
+Sheet sharing remains the sharing mechanism, as specified by `016-002` and
+`016-008`. The surface does not invent a distributed lock, identity model, or
+spreadsheet editor for shared installs.
 
 013-020 CONTACTS CONTAINER CHOICE
 
 Setup exposes the one selected Contacts container used as both the read set and
 write target. It defaults to iCloud when available; if iCloud is absent,
 engineering selects among available containers with iCloud preferred when
-available. The surface does not offer unified-store synchronization.
+available. This surface implements `017-001` through `017-006` and does not
+offer unified-store synchronization.

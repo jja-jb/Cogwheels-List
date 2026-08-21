@@ -21,4 +21,5 @@ Subgroups are macOS-only.
 
 007-005 CONTAINERS
 
-Containers are write-target-only.
+Containers are write-target-only unless one container is selected as both the
+read set and write target under `017-001` through `017-006`.

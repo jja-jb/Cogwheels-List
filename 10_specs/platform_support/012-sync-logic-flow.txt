@@ -45,7 +45,10 @@ Cogwheel garbage-collects a tombstone after 3 consecutive both-absent successful
 
 012-011 GROUPS AND MEMBERSHIP
 
-Groups and membership use the second identity kind, a separate `cw-` namespace, membership atoms, macOS-only subgroups, and write-target-only containers.
+Groups and membership use the second identity kind, a separate `cw-`
+namespace, membership atoms, and macOS-only subgroups. Container behavior is
+owned by `017-001` through `017-006`: containers are write-target-only unless
+one is selected as both the read set and write target.
 
 012-012 PHOTOS
 
