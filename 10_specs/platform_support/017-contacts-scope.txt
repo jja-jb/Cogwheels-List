@@ -1,0 +1,36 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 017
+Contacts Container Scope
+
+===========================================================================
+
+017-001 ONE CHOSEN CONTAINER
+
+Cogwheel selects one Contacts container for version 1. It uses that container
+as both the read set and the write target.
+
+017-002 DEFAULT
+
+The selected container defaults to iCloud when iCloud is available.
+
+017-003 ICloud ABSENT
+
+If iCloud is absent, engineering selects among available Contacts containers
+with iCloud preferred when available. This is engineering under the locked
+container choice, not a new product question.
+
+017-004 NO UNIFIED STORE SYNC
+
+Cogwheel does not synchronize the entire unified Contacts store. It reads and
+writes only the one selected container.
+
+017-005 IDENTITY REASON
+
+The one-container scope avoids identifier differences that can arise from
+`CNContactStore` unified results and preserves the `CNContact.identifier` plus
+`cw-` identity rules.
+
+017-006 CONTAINER BOUNDARY
+
+Contacts containers remain write-target-only unless selected by this scope.
+Selecting one container as the read set and write target does not create a
+second editing surface or a new identity algebra.

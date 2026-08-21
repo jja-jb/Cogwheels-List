@@ -75,3 +75,23 @@ hash/presence schema. The join path selects an existing target and does not
 create a new distributed lock or a spreadsheet editor. A second installation
 has its own Apple and Google account; the same-fingerprint second-instance
 fail-stop remains unchanged.
+
+## AU-05 — Contacts container scope
+
+```text
++--------------------------------------------------+
+| Contacts source                                  |
+|--------------------------------------------------|
+| Read and write container: <iCloud / available>    |
+|                                                  |
+| Default: iCloud when available                    |
+| Unified Contacts store: not selected              |
+|                                                  |
+| [Continue] [Details]                              |
++--------------------------------------------------+
+```
+
+Cogwheel uses one selected container as both the read set and write target. If
+iCloud is absent, engineering selects among available containers with iCloud
+preferred when available. The surface does not present the unified Contacts
+store as a sync target.

@@ -95,3 +95,12 @@ the second-instance fail-stop remains scoped to the same fingerprint. No
 distributed lock or new identity algebra is defined here; any gap between
 shared-Sheet concurrency and the per-installation ancestor snapshot remains an
 implementation gap.
+
+012-021 CONTACTS CONTAINER SCOPE
+
+Cogwheel selects one Contacts container, defaulting to iCloud when available,
+and uses it as both the read set and write target. If iCloud is absent,
+engineering selects among available containers with iCloud preferred when
+available. Cogwheel does not synchronize the entire unified store; the single
+container boundary preserves the `CNContact.identifier` and `cw-` identity
+rules.
