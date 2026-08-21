@@ -25,4 +25,7 @@ Cogwheel fail-stops on a missing or duplicate `cw_id`.
 
 004-006 ID MODEL
 
-Unified and linked identity use one spec ID.
+The identity model is the `CNContact.identifier` plus `cw-` model in
+`004-002` through `004-005`. Container scope and the exclusion of unified-store
+synchronization are governed by `017-001` through `017-006`; this requirement
+adds no unified-store identity rule.

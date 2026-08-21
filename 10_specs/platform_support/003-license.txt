@@ -6,8 +6,9 @@ License
 003-001 LICENSE
 
 The project uses the checked-in Hummingbird License v1.6, U.S. Edition.
-The checked-in license text is controlling; a later license version is not
-implicitly adopted.
+The checked-in license text is controlling; a later edition is adopted only
+through an explicit release review under `018-009`, never silently at build
+time.
 
 003-002 CARVE-OUTS
 

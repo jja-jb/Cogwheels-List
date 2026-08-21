@@ -9,7 +9,8 @@ Version 1.x supports one Apple account plus one Google account.
 
 002-002 GOOGLE SHARING
 
-Google sharing is represented by external Sheet-side values.
+Google sharing uses ordinary Google Sheet sharing and remains Sheet-side, as
+specified by `016-002` and `016-008`.
 
 002-003 MACHINE COLUMNS
 

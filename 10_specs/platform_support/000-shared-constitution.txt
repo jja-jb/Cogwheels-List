@@ -16,7 +16,11 @@ The application synchronizes only sources selected and authorized by the user. I
 
 000-005 DETERMINISTIC SYNC
 
-The same source state and configuration produce the same reconciliation result. Conflict handling, retry behavior, and checkpoint persistence are explicit requirements in their owning specifications.
+The same source state and configuration produce the same reconciliation result.
+Conflict handling is explicit in its owning specifications. Crash-atomic commit
+ordering, interrupted-write recovery, and a durable checkpoint protocol remain
+the explicit gap recorded by `012-017`; implementations must not infer those
+details from this constitution.
 
 000-006 PRIVACY BY DEFAULT
 

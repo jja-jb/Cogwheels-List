@@ -103,7 +103,7 @@ implementation gap.
 
 Cogwheel selects one Contacts container, defaulting to iCloud when available,
 and uses it as both the read set and write target. If iCloud is absent,
-engineering selects among available containers with iCloud preferred when
-available. Cogwheel does not synchronize the entire unified store; the single
-container boundary preserves the `CNContact.identifier` and `cw-` identity
-rules.
+engineering selects among the remaining available containers using a
+documented priority order. Cogwheel does not synchronize the entire unified
+store; the single-container boundary preserves the `CNContact.identifier` and
+`cw-` identity rules.

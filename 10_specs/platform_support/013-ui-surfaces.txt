@@ -135,6 +135,6 @@ spreadsheet editor for shared installs.
 
 Setup exposes the one selected Contacts container used as both the read set and
 write target. It defaults to iCloud when available; if iCloud is absent,
-engineering selects among available containers with iCloud preferred when
-available. This surface implements `017-001` through `017-006` and does not
-offer unified-store synchronization.
+engineering selects among the remaining available containers using a
+documented priority order. This surface implements `017-001` through `017-006`
+and does not offer unified-store synchronization.
