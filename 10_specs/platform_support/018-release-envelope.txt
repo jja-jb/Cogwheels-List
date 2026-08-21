@@ -1,0 +1,88 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 018
+Cogwheels List Release Envelope
+
+===========================================================================
+
+018-001 DIRECTIONAL LOCK
+
+Cogwheels follows the ARC-style native Mac delivery direction: one signed,
+notarized, stapled Apple silicon app in a signed, notarized, stapled DMG,
+supported on macOS 15.0 or later on arm64. This is a delivery envelope, not a
+copy of ARC-only implementation machinery.
+
+018-002 ORDINARY INSTALL
+
+A person verifies the published checksum, drags the app to Applications, and
+opens it. Ordinary installation requires no administrative privilege, package
+manager, or developer checkout. Cogwheels does require its locked authorized
+Google account and network path for Sheet synchronization; ARC 009 IR-002's
+“no provider account or network” sentence is not copied to this product.
+
+018-003 ONE NATIVE PAYLOAD
+
+The public product is one native Cogwheels List application. The release does
+not add an ARC-style `arc` CLI, daemon, service, extension system, private
+helper, downloaded code, knowledge container, or alternate implementation.
+
+018-004 SIGNING AND CHANNEL
+
+The app is Developer ID signed, Apple notarized, and stapled. The DMG is
+signed, notarized, and stapled. Cogwheels is not distributed through the Mac
+App Store. This specification does not invent Sparkle or a second update/store
+path.
+
+018-005 INSTALL INTEGRITY
+
+The shipped app payload is one complete signed release identity. Release
+preparation verifies the candidate bytes and checksum before publication. ARC
+009 IR-003's ARC-owned `current/` tree, knowledge digest, and install manifest
+are not adopted because Cogwheels does not have those components.
+
+018-006 SUPPORTED PLATFORM
+
+The locked delivery target is macOS 15.0 or later on arm64 Apple silicon.
+
+018-007 SOURCE RELEASE
+
+The public source revision contains the source, numbered specifications,
+documentation, legal text, and reviewable assets needed to understand the
+release. A source archive excludes secrets, credentials, local data, caches,
+generated build output, signing material, and ignored working-tree files.
+
+018-008 REPRODUCIBLE PREPARATION
+
+Release preparation starts from a clean, immutable revision, verifies the
+candidate app and DMG, and records the exact source commit and payload
+checksums. Independent validation must run against the frozen candidate before
+publication; ARC-specific DVT tooling is not imported as a Cogwheels component.
+
+018-009 LICENSE IDENTITY
+
+The release carries the exact checked-in Hummingbird License v1.6, U.S.
+Edition. The license text is controlling; explanatory summaries do not amend
+it. Any third-party payload or notice change pauses publication for a legal and
+source-record review.
+
+018-010 RELEASE EVIDENCE
+
+The release record identifies product/version, immutable source commit,
+minimum macOS, arm64 architecture, bundle identity, signing identity,
+notarization and staple results, and the Hummingbird License digest. Candidate
+payload hashes are frozen before independent validation; changing a tested
+byte creates a new candidate.
+
+018-011 HUMAN PUBLICATION
+
+Publication is a human maintainer action from a clean revision after build and
+independent validation pass. Build tooling does not push, create a release, or
+upload a candidate.
+
+018-012 ARC CLAUSES MAPPED
+
+This envelope maps ARC 009 IR-002 ordinary Mac delivery, IR-003 one atomic
+installed payload, IR-005 safe replacement, IR-006 complete source tree,
+IR-007 reproducible checks, IR-008 license identity, IR-009 candidate assets,
+IR-010 two-phase release evidence, and IR-011 publication quality. ARC-only
+CLI, knowledge-container, install-manifest, room-preservation, and `arc-dev`
+machinery are intentionally excluded unless Cogwheels later has those actual
+components.
