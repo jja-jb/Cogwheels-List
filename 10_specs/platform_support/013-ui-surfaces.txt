@@ -119,6 +119,13 @@ permission to display the underlying value.
 013-018 SCREEN INVENTORY
 
 The complete inventory is: first launch/setup; Contacts permission; Google
-account authorization; Sheet picker; main status; conflict freeze; size-bound
-fail-closed; second-instance fail-stop; permission denied; Sheet unreachable;
-diagnostics; and recovery.
+account authorization; create-new or choose-existing Sheet target; main status;
+conflict freeze; size-bound fail-closed; second-instance fail-stop; permission
+denied; Sheet unreachable; diagnostics; and recovery.
+
+013-019 SHEET CREATE OR JOIN
+
+Setup exposes a create-new-Sheet path for the initial installation and a
+choose-existing-shared-Sheet path for a later installation. Regular Google
+Sheet sharing remains the sharing mechanism. The surface does not invent a
+distributed lock, identity model, or spreadsheet editor for shared installs.

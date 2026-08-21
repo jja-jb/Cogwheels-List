@@ -52,3 +52,26 @@ The account label is an authorization status, not a contact or Sheet editor.
 Picker states include `Unavailable` and `Cancelled`. A selected target is
 shown as a redacted target identifier in diagnostics; this surface does not
 show or edit cells.
+
+## AU-04 — Create or join a shared Sheet
+
+```text
++--------------------------------------------------+
+| Sheet setup                                       |
+|--------------------------------------------------|
+| Target: <Create new Sheet / Choose existing>      |
+|                                                  |
+| First installation: create and manage the Sheet.  |
+| Later installation: choose an existing shared    |
+| Sheet using regular Google Sheet sharing.         |
+|                                                  |
+| [Create new Sheet] [Choose existing Sheet]        |
+| [Details]                                         |
++--------------------------------------------------+
+```
+
+The create path uses the locked contacts, groups, membership, and photo
+hash/presence schema. The join path selects an existing target and does not
+create a new distributed lock or a spreadsheet editor. A second installation
+has its own Apple and Google account; the same-fingerprint second-instance
+fail-stop remains unchanged.

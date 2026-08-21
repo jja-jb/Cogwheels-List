@@ -85,3 +85,13 @@ The existing flow starts automatically on an Apple Contacts change and on app
 launch. It does not require a timer, Sheet-side poll, or manual-only mode.
 Serialization, coalescing, and single-run-at-a-time behavior remain engineering
 concerns under the trigger lock.
+
+012-020 SHEET BOOTSTRAP AND JOIN
+
+First-run setup may create the initial Sheet with the locked schema; a later
+installation may select an existing shared Sheet through ordinary Google Sheet
+sharing. Distinct instance fingerprints are an intended shared-Sheet use, while
+the second-instance fail-stop remains scoped to the same fingerprint. No
+distributed lock or new identity algebra is defined here; any gap between
+shared-Sheet concurrency and the per-installation ancestor snapshot remains an
+implementation gap.

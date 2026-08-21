@@ -1,0 +1,51 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 016
+Sheet Bootstrap and Shared-Sheet Join
+
+===========================================================================
+
+016-001 INITIAL SHEET
+
+Cogwheel creates and manages the initial Google Sheet on first-run setup. The
+created Sheet uses the locked contacts, groups, membership, and photo
+hash/presence schema.
+
+016-002 EXISTING SHEET
+
+A later installation may select an existing shared Sheet as its target. The
+Sheet is shared with regular Google Sheet sharing; sharing is Sheet-side.
+
+016-003 INSTALLATION ACCOUNTS
+
+Each installation continues to use one Apple account and one Google account.
+This rule is unchanged by a shared Sheet target.
+
+016-004 MACHINE COLUMNS
+
+Cogwheel software remains the only writer of machine columns. Other users may
+use their own Cogwheel installation for integration through the shared Sheet.
+
+016-005 INSTANCE SAFETY
+
+The second-instance fail-stop still applies to a second instance of the same
+instance fingerprint. Distinct installations with distinct fingerprints and
+their own Apple accounts pointing at the same shared Sheet are an intended
+use, not an accidental duplicate of one instance.
+
+016-006 NO NEW DISTRIBUTED LOCK
+
+This specification does not invent a distributed lock or a new identity
+algebra for distinct installations. The existing `cw-` identity and ancestor
+rules remain the locked rules.
+
+016-007 CONCURRENCY GAP
+
+If the existing fail-stop and per-installation ancestor snapshots cannot yet
+express concurrent legitimate writers to one shared Sheet, that is an
+implementation gap to record and resolve. Implementations must not invent a
+concurrency policy from this specification.
+
+016-008 CREATE-OR-PICK SURFACE
+
+Setup exposes a create-new-Sheet path for the initial installation and a
+choose-existing-shared-Sheet path for a later installation. Neither path is a
+spreadsheet editor.
