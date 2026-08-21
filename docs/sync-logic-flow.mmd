@@ -13,9 +13,16 @@ flowchart TD
     I -- equal --> K[Advance ancestor]
     I -- genuine conflict --> L[Freeze field and write header-named cw_conflict]
     L --> M[No auto-winner]
+    M --> W{New human write in Contacts.app?}
+    W -- no --> X[Remain frozen]
+    W -- yes --> Y[Propagate live Contacts value to Sheet]
+    Y --> Y1{Sheet write succeeds?}
+    Y1 -- no --> X
+    Y1 -- yes --> Y2[Clear cw_conflict and advance ancestor]
     J --> N[Apply groups, membership, and photo hash/presence rules]
     K --> N
-    M --> N
+    X --> N
+    Y2 --> N
     N --> O[Apply deterministic additive-header rules]
     O --> P{Size bound overflow?}
     P -- yes --> Z3[Fail closed]

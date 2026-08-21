@@ -70,3 +70,11 @@ Contacts.app is the human UI. Cogwheel has no editing UI and creates no third ed
 012-017 DURABILITY GAP
 
 The locked specifications do not yet define crash-atomic commit ordering, recovery after an interrupted write, or a durable checkpoint protocol beyond the explicit Application Support snapshot and fail-closed rules. Implementations must not infer those details from this document.
+
+012-018 CONFLICT UNFREEZE
+
+After a genuine conflict, a new human write to the named field in Contacts.app
+is the intended resolution event. Cogwheel propagates that live Contacts value
+to the Sheet, clears `cw_conflict`, and advances the ancestor only after the
+Sheet write succeeds. A Sheet-only edit does not clear the freeze; if the Sheet
+cannot be written, the field remains frozen.

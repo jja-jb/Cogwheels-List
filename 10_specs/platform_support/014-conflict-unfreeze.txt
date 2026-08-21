@@ -1,0 +1,47 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 014
+Conflict Unfreeze
+
+===========================================================================
+
+014-001 EXISTING FREEZE
+
+After a genuine three-way conflict, Cogwheel records a header-named
+`cw_conflict`, chooses no auto-winner, and provides no in-app winner button.
+
+014-002 HUMAN RESOLUTION
+
+The human resolves the named field by writing a new intended value in
+Contacts.app, the Apple editing surface. The new Contacts value need not equal
+the pre-freeze Sheet value.
+
+014-003 CLEARING EVENT
+
+A new human write to the named field in Contacts.app is the event that clears
+the freeze. Merely observing the old Contacts value does not clear it.
+
+014-004 SHEET-ONLY EDIT
+
+Editing the Sheet cell alone does not clear `cw_conflict` and does not create a
+winner. Cogwheel never auto-selects between the two frozen values without a
+new Contacts write.
+
+014-005 CONTACTS PROPAGATION
+
+After the new Contacts write, Cogwheel propagates that live Contacts value to
+the Sheet. The value is the intended human resolution for that named field.
+
+014-006 SUCCESSFUL UNFREEZE
+
+When propagation to the Sheet succeeds, Cogwheel clears `cw_conflict` and
+advances the last-successfully-applied ancestor to the propagated Contacts
+value.
+
+014-007 SHEET WRITE FAILURE
+
+If the Sheet cannot be written, the field remains frozen and `cw_conflict`
+remains recorded until the Contacts value can be propagated successfully.
+
+014-008 NO THIRD EDITOR
+
+Cogwheel has no data-editing UI. The unfreeze action is a human write in
+Contacts.app followed by the defined relay behavior.
