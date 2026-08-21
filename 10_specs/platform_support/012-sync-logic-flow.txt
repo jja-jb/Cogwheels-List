@@ -78,3 +78,10 @@ is the intended resolution event. Cogwheel propagates that live Contacts value
 to the Sheet, clears `cw_conflict`, and advances the ancestor only after the
 Sheet write succeeds. A Sheet-only edit does not clear the freeze; if the Sheet
 cannot be written, the field remains frozen.
+
+012-019 SYNC TRIGGERS
+
+The existing flow starts automatically on an Apple Contacts change and on app
+launch. It does not require a timer, Sheet-side poll, or manual-only mode.
+Serialization, coalescing, and single-run-at-a-time behavior remain engineering
+concerns under the trigger lock.

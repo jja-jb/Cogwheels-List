@@ -1,0 +1,33 @@
+BRIGHTSHELF PLATFORM SPECIFICATION 015
+Sync Trigger
+
+===========================================================================
+
+015-001 REQUIRED TRIGGERS
+
+Cogwheel runs automatic synchronization when Apple Contacts change and when
+the app launches.
+
+015-002 NO REQUIRED TIMER
+
+The product does not add a required timer-based sync trigger.
+
+015-003 NO SHEET-SIDE POLL
+
+The product does not add a required Sheet-side polling trigger.
+
+015-004 NOT MANUAL-ONLY
+
+The product is not manual-only. Apple Contacts changes and app launch are the
+locked automatic entry points for a sync run.
+
+015-005 ENGINEERING CONCERNS
+
+Serialization, coalescing, and single-run-at-a-time behavior are engineering
+under this trigger lock. They are not new product policy.
+
+015-006 FLOW ENTRY
+
+Each locked trigger enters the existing sync logic flow. The trigger does not
+change identity, conflict, delete, group, membership, photo, header, size,
+determinism, or editing-surface rules.
